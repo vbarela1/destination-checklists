@@ -1,0 +1,16 @@
+<% unless @traveler.last_name.empty? %>
+<strong><h1> Traveler: <%= @traveler.first_name %> <%= @traveler.last_name%></h1>
+
+<hr /> 
+<% end %>
+
+<% if @traveler.destination.any? %>
+<h5> Destinations </h5>
+<ul>
+  <% @traveler.checklists.each do |checklists| %>
+<li>
+  <% checklists.destination.name%> - <%= checklists.item %>
+  <%= link_to 'Remove', destination_checklist(checklist), class: "btn", method: :delete, data: {confirm: 'You sure you want to?'}%>
+</li>
+  <% end %>
+<% end %>

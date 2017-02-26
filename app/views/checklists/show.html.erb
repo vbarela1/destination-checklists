@@ -1,0 +1,30 @@
+<h1 class="center"><%= @destination.name %> Checklist</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <% @checklist.items.each do |item| %>
+        <h3><%= item.name %></h3>
+        <p><%= item.description %><p>
+        Complete? <%= link_to item.complete, complete_item_path(item), method: :post  %>
+        <br>
+        <%= link_to 'Delete', delete_item_path(item), method: :delete, data: {confirm: "Delete #{item.name}?"}, class: 'red-text' %>
+        <%= link_to 'Edit', edit_item_path(@checklist, item) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col s12 m6 offset-m3'>
+    <%= form_tag(new_item_path(@checklist)) do %>
+      <h3>Add Item</h3>
+      <%= text_field_tag :name, nil, placeholder: 'Name' %>
+      <%= text_area_tag :description, nil, placeholder: 'Description' %>
+      <%= check_box_tag(:complete, 'yes', false, class: 'browser-default')%>
+      <label for='complete'>Complete?</label>
+      <br>
+      <%= submit_tag 'Save', class: 'btn' %>
+    <% end %>
+  </div>
+</div>

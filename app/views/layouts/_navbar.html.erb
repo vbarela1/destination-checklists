@@ -1,0 +1,25 @@
+
+<nav class ="light-blue accent-2">
+
+  <div class = "nav-wrapper">
+    <%= link_to 'Travelers', root_path, class: 'brand-logo center black-text' %>
+    <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to 'Home', travelers_path%></li>
+      <li><%= link_to 'Login', new_traveler_session_path %>
+      <li><%= link_to 'Logout', destroy_traveler_session_path, method: :delete %></li>
+    </ul>
+    <ul class="side-nav" id="mobile">
+      <li><%= link_to 'Home', travelers_path %></li>
+      <% if traveler_signed_in? %>
+        <li><%= link_to 'Logout', destroy_traveler_session_path, method: :delete %></li>
+      <% else %>
+       <li class = "active">
+         <%= link_to 'Login', new_traveler_session_path %>
+       </li>
+      <% end %>
+    </ul>
+  </div>
+
+</nav>

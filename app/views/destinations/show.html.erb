@@ -1,0 +1,27 @@
+<h1 class="center">Destinations</h1>
+
+<div class="container">
+  <div class="row  blue-grey lighten-4">
+    <div class="col s12"><h3>Name: <%= @destination.name %></h3></div>
+  </div>
+
+  <div class="row blue-grey lighten-4">
+    <h3>Description:</h3>
+    <div class="col S12"><h5><%= @destination.description %></h5></div>
+  </div>
+
+  <div class="row blue-grey lighten-4">
+    <h3>Location:</h3>
+    <div class="col S12"><h5><%= @destination.location %></h5></div>
+  </div>
+
+  <div class="center destination-buttons">
+   <%= link_to 'View Checklist ', traveler_destination_checklist_path(@traveler, @destination, @destination.checklist.id),
+       class: 'btn light-green white-text'%>
+  <%= link_to 'Edit Destination', edit_traveler_destination_path(@traveler, @destination),
+      class: 'btn light-green white-text'%>
+  <%= link_to 'Delete Destination', traveler_destination_path(@traveler, @destination),
+      class: 'btn light-green white-text',
+      method: :delete, data: {confirm: 'Really Delete Destination?'} %>
+  </div>
+</div>

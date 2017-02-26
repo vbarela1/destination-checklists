@@ -1,0 +1,29 @@
+<h3 class="center">All Destinations</h3>
+<br />
+<div class="center"><%= link_to 'Create New Destination', new_traveler_destination_path(@traveler), class: 'btn light-green white-text' %></div>
+<div class="container">
+  <div class="row">
+    <% unless @destinations.nil? %>
+      <% @destinations.each do |destination| %>
+        <div class="col s12 m6">
+          <div class="z-depth-5">
+            <div class="card grey darken-1">
+              <div class="card-image">
+              </div>
+              <div class="card-content">
+                  <span class="card-title white-text"><%= destination.name %></span>
+              </div>
+              <div class="card-action center">
+                <%= link_to "Show", traveler_destination_path(@traveler, destination)%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h4>There are no destination. Please make a new destination</h4>
+    <% end %>
+  </div>
+</div>
+
+
