@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20170225220150) do
     t.integer  "checklist_id"
     t.string   "name"
     t.string   "description"
-    t.string   "complete"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "complete",     default: "no"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["checklist_id"], name: "index_items_on_checklist_id", using: :btree
   end
 
