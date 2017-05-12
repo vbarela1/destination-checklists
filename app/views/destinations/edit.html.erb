@@ -1,8 +1,10 @@
-<body class="form">
-<h1>Edit <%=@destination.name%></h1>
+<div class='container'>
+  <body class="form">
+    <h1>Edit <%=@destination.name%></h1>
 
-<%= render(partial: 'form') %>
+    <%= render(partial: 'form') %>
 
-<br />
-<%= link_to 'Back',traveler_destinations_path(@traveler), class: 'btn light-green white-text' %>
-</body>
+    <br />
+    <%= link_to 'Back',traveler_destinations_path(@traveler), class: 'btn light-green white-text' %>
+  </body>
+</div>

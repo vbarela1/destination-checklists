@@ -1,26 +1,26 @@
-<h1>Travelers</h1>
+<div class='container'>
+  <h1>Travelers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Interest</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @travelers.each do |traveler| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= traveler.first_name %></td>
-        <td><%= traveler.last_name %></td>
-        <td><%= traveler.interests %></td>
-        <td><%= link_to 'Your Destinations', traveler_destinations_path(traveler), class:'btn light-green black-text' %></td>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Interest</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br />
+    </thead>
 
-|
+    <tbody>
+      <% @travelers.each do |traveler| %>
+        <tr>
+          <td><%= traveler.first_name %></td>
+          <td><%= traveler.last_name %></td>
+          <td><%= traveler.interests %></td>
+          <td><%= link_to 'Your Destinations', traveler_destinations_path(traveler), class:'btn light-green black-text' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+</div>
